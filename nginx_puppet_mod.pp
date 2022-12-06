@@ -1,7 +1,10 @@
 # Nginx webserver
 # Used documentation: https://forge.puppet.com/modules/puppet/nginx/readme
-# Used default nginx logging which should suffice for the requirement
+# Used default nginx logging
 
+package {'nginx':
+    ensure => 'installed',
+    }
 
 nginx::resource::server { 'puppet_netcentric_test':
   members => {
@@ -23,14 +26,10 @@ nginx::resource::server { 'puppet_netcentric_test':
       use_ssl => true,
       ssl_cert => '/var/lib/puppet/ssl/certs/domain.com.pem',
       ssl_key  => '/var/lib/puppet/ssl/private_keys/domain.com.pem',
-      access_log => '/var/log/nginx/domain.com_access.log',
-      error_log  => '/var/log/nginx/domain.com_error.log',
+      access_log => '/var/log/nginx/domain.com_resoure2_access.log',
+      error_log  => '/var/log/nginx/domain.com_resoure2_error.log',
       weight => 1,
     },
-}
-
-nginx::resource::server { 'rack.puppetlabs.com':
-  proxy => 'http://puppet_rack_app',
 }
 
 
