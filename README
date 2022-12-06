@@ -1,0 +1,7 @@
+Created the module using Google search and official Puppet documentations. Used 'resoure2' even if it might be a typo, I have no way to validate if this is intended or not. 
+Used only HTTPS, no HTTP allowed. Maybe should have done a redirect from HTTP to HTTPS.
+Used the same SSL certificates for both servers.
+For logging I have used the name of the domain for the 1st server and added 'resoure2' for the second. Given the fact  
+
+For the health check I have used a retry interval of 10s and a timeout of 50s to have less checks per minute/hour etc.
+
